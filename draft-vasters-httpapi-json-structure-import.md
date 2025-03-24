@@ -20,7 +20,7 @@ venue:
   mail: WG@example.com
   arch: https://example.com/WG
   github: json-structure/import
-  latest: https://json-structure.github.io/import 
+  latest: https://json-structure.github.io/import
 
 author:
  -
@@ -33,9 +33,9 @@ normative:
   RFC3986:
   RFC3987:
   RFC8174:
-  JSTRUCT-CORE: 
+  JSTRUCT-CORE:
     title: "JSON Structure Core"
-    author: 
+    author:
       - fullname: Clemens Vasters
     target: https://json-structure.github.io/core/draft-vasters-httpapi-json-structure-core.html
 
@@ -133,7 +133,7 @@ the prior example:
     "$import": "https://example.com/people.json"
   }
 }
-~~~	
+~~~
 
 One can also import into any local namespace within the `$defs` section:
 
@@ -296,7 +296,7 @@ namespace:
           "country": { "type": "string" }
         }
       }
-    }    
+    }
   }
 }
 ~~~
