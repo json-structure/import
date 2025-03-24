@@ -3,7 +3,7 @@
 title: "JSON Structure Import"
 category: info
 
-docname: draft-vasters-httpapi-json-structure-import
+docname: draft-vasters-httpapi-json-structure-import-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date: 2025-03-24
