@@ -21,8 +21,8 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
+   The latest revision of this draft can be found at https://json-
+   structure.github.io/import.  Status information for this document may
    be found at https://datatracker.ietf.org/doc/draft-vasters-httpapi-
    json-structure/.
 
@@ -31,7 +31,7 @@ About This Document
    https://example.com/WG.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/json-structure/import.
 
 Status of This Memo
 
@@ -86,12 +86,12 @@ Table of Contents
 1.  Introduction
 
    This document specifies the $import and $importdefs keywords, as
-   extensions to JSON Structure Core ([JSTRUCT-CORE]).  These keywords
+   extensions to JSON Structure Core [JSTRUCT-CORE].  These keywords
    allow a schema to import definitions from external schema documents.
 
-   All type reference expressions in JSON Structure Core
-   ([JSTRUCT-CORE]), $ref and $extends and $addins, are limited to
-   references within the current schema document.
+   All type reference expressions in JSON Structure Core, $ref and
+   $extends and $addins, are limited to references within the current
+   schema document.
 
    The $import and $importdefs keywords enable schema authors to
    incorporate external schema documents into a schema.
