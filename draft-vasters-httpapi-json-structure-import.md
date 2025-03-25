@@ -118,7 +118,7 @@ Example for `$import` at the root level:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "$import": "https://example.com/people.json"
 }
 ~~~
@@ -128,7 +128,7 @@ the prior example:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "$defs": {
     "$import": "https://example.com/people.json"
   }
@@ -175,7 +175,7 @@ Let the external schema be defined as follows:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "$id": "https://example.com/people.json",
   "name": "Person",
   "type": "object",
@@ -202,7 +202,7 @@ as the type of the `person` property:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "type": "object",
   "properties": {
     "person": {
@@ -231,7 +231,7 @@ schema:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "$import": "https://example.com/people.json",
   "type": "object",
   "properties": {
@@ -249,7 +249,7 @@ The following schema is equivalent to the prior example:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "type": "object",
   "properties": {
     "person": {
@@ -277,7 +277,7 @@ namespace:
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "type": "object",
   "properties": {
     "person": {
@@ -312,7 +312,7 @@ before. However, the `Person` type is not imported and available.
 
 ~~~json
 {
-  "$schema": "https://schemas.vasters.com/experimental/json-structure-core/v0",
+  "$schema": "https://json-structure.github.io/meta/core/v0",
   "type": "object",
   "properties": {
     "shippingAddress": {
