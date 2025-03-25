@@ -1,6 +1,6 @@
 ---
 
-title: "JSON Structure Import"
+title: "JSON Structure: Import"
 category: info
 
 docname: draft-vasters-httpapi-json-structure-import
