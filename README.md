@@ -4,10 +4,10 @@
 
 This is the working area for the individual Internet-Draft, "JSON Structure Import".
 
-* [Editor's Copy](https://json-structure.github.io/import/#go.draft-vasters-httpapi-json-structure-import.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-vasters-httpapi-json-structure-import)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-vasters-httpapi-json-structure-import)
-* [Compare Editor's Copy to Individual Draft](https://json-structure.github.io/import/#go.draft-vasters-httpapi-json-structure-import.diff)
+* [Editor's Copy](https://json-structure.github.io/import/#go.draft-vasters-json-structure-import.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-vasters-json-structure-import)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-vasters-json-structure-import)
+* [Compare Editor's Copy to Individual Draft](https://json-structure.github.io/import/#go.draft-vasters-json-structure-import.diff)
 
 
 ## Contributing
