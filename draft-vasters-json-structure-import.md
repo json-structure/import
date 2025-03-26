@@ -82,7 +82,7 @@ A schema processor MUST process the `$import` and `$importdefs` keywords before
 processing any other keywords in the schema document.
 
 The result of importing definitions is that the imported definitions are merged
-into the local `$defs` section under the designated namespace as if they were
+into the local `definitions` section under the designated namespace as if they were
 defined locally.
 
 A schema that uses `$import` or `$importdefs` MAY _shadow_ any imported
@@ -106,12 +106,12 @@ definitions of the external schema into a local namespace within the current
 schema document.
 
 When the keyword is used at the root level of a schema, the imported definitions
-are available in the schema's root namespace. When used within the `$defs`
+are available in the schema's root namespace. When used within the `definitions`
 section, the imported definitions are available in the respective local
 namespace.
 
 > **Reminder**: Any type declaration at the root level of a schema and any type
-> declaration at the root level of the `$defs` section is placed in the schema's
+> declaration at the root level of the `definitions` section is placed in the schema's
 > root namespace per section 3.3 of {{JSTRUCT-CORE}}.
 
 Example for `$import` at the root level:
@@ -123,23 +123,23 @@ Example for `$import` at the root level:
 }
 ~~~
 
-Importing into the root namespace within the `$defs` section is equivalent to
+Importing into the root namespace within the `definitions` section is equivalent to
 the prior example:
 
 ~~~json
 {
   "$schema": "https://json-structure.github.io/meta/core/v0/#",
-  "$defs": {
+  "definitions": {
     "$import": "https://example.com/people.json"
   }
 }
 ~~~
 
-One can also import into any local namespace within the `$defs` section:
+One can also import into any local namespace within the `definitions` section:
 
 ~~~json
 {
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json"
     }
@@ -161,7 +161,7 @@ The `$importdefs` keyword is a reference expression whose value is an absolute
 URI pointing to an external schema document.
 
 `$importdefs` works the same as `$import`, with the exception that it only
-imports the `$defs` section of the external schema and not the root type.
+imports the `definitions` section of the external schema and not the root type.
 
 The purpose of `$importdefs` is to use the type definitions from an external
 schema as a library of types that can be referenced from within the local schema
@@ -182,9 +182,9 @@ Let the external schema be defined as follows:
   "properties": {
     "firstName": { "type": "string" },
     "lastName": { "type": "string" },
-    "address": { "$ref": "#/$defs/Address" }
+    "address": { "$ref": "#/definitions/Address" }
   },
-  "$defs": {
+  "definitions": {
     "Address": {
       "type": "object",
       "properties": {
@@ -206,13 +206,13 @@ as the type of the `person` property:
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/People/Person" }
+      "type": { "$ref": "#/definitions/People/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/People/Address" }
+      "type": { "$ref": "#/definitions/People/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json"
     }
@@ -236,10 +236,10 @@ schema:
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/Person" }
+      "type": { "$ref": "#/definitions/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/Address" }
+      "type": { "$ref": "#/definitions/Address" }
     }
   }
 }
@@ -253,13 +253,13 @@ The following schema is equivalent to the prior example:
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/Person" }
+      "type": { "$ref": "#/definitions/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/Address" }
+      "type": { "$ref": "#/definitions/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "$import": "https://example.com/people.json"
   }
 }
@@ -281,10 +281,10 @@ namespace:
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/People/Person" }
+      "type": { "$ref": "#/definitions/People/Person" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json",
       "Address": {
@@ -301,11 +301,11 @@ namespace:
 }
 ~~~
 
-## Example: Using `$importdefs` to import the `$defs` section of an external schema {#example-importdefs}
+## Example: Using `$importdefs` to import the `definitions` section of an external schema {#example-importdefs}
 
 The external schema remains the same as in Example 4.1.
 
-The importing schema uses `$importdefs` to import the `$defs` section of the
+The importing schema uses `$importdefs` to import the `definitions` section of the
 external schema into the "People" namespace. The imported `Address` type is then
 used in the local schema as the type of the `shippingAddress` property as
 before. However, the `Person` type is not imported and available.
@@ -316,10 +316,10 @@ before. However, the `Person` type is not imported and available.
   "type": "object",
   "properties": {
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/People/Address" }
+      "type": { "$ref": "#/definitions/People/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$importdefs": "https://example.com/people.json"
     }
