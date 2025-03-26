@@ -1182,6 +1182,11 @@ external schema documents.<a href="#section-abstract-1" class="pilcrow">¶</a></
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-resolving-uris" class="internal xref">Resolving URIs</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-enabling-the-extensions" class="internal xref">Enabling the Extensions</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-and-interoperabili" class="internal xref">Security and Interoperability</a></p>
@@ -1519,6 +1524,33 @@ before. However, the <code>Person</code> type is not imported and available.<a h
 <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span> and <span>[<a href="#RFC3987" class="cite xref">RFC3987</a>]</span><a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">This specification does not define any additional rules for resolving URIs into
 schema documents.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<div id="enabling-the-extensions">
+<section id="section-5.1">
+        <h3 id="name-enabling-the-extensions">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-enabling-the-extensions" class="section-name selfRef">Enabling the Extensions</a>
+        </h3>
+<p id="section-5.1-1">The import extensions are available and enabled by default via the extended
+meta-schema:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<div class="lang-json sourcecode" id="section-5.1-2">
+<pre>
+{
+  "$schema": "https://json-structure.github.io/meta/extended/v0/#",
+  "$id": "myschema",
+  "$import": "https://example.com/people.json",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+    },
+    "address": {
+      "type": { "$ref": "#/definitions/Person/Address" }
+    }
+  }
+}
+</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="security-and-interoperability">

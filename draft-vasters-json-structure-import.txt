@@ -78,6 +78,7 @@ Table of Contents
      4.3.  Example: Using $importdefs to import the $defs section of
            an external schema
    5.  Resolving URIs
+     5.1.  Enabling the Extensions
    6.  Security and Interoperability
    7.  IANA Considerations
    8.  Normative References
@@ -362,6 +363,26 @@ Table of Contents
 
    This specification does not define any additional rules for resolving
    URIs into schema documents.
+
+5.1.  Enabling the Extensions
+
+   The import extensions are available and enabled by default via the
+   extended meta-schema:
+
+   {
+     "$schema": "https://json-structure.github.io/meta/extended/v0/#",
+     "$id": "myschema",
+     "$import": "https://example.com/people.json",
+     "type": "object",
+     "properties": {
+       "name": {
+         "type": "string",
+       },
+       "address": {
+         "type": { "$ref": "#/definitions/Person/Address" }
+       }
+     }
+   }
 
 6.  Security and Interoperability
 
