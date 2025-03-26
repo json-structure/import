@@ -335,6 +335,28 @@ When resolving URIs, schema processors MUST follow the rules defined in
 This specification does not define any additional rules for resolving URIs into
 schema documents.
 
+## Enabling the Extensions {#enabling-the-extensions}
+
+The import extensions are available and enabled by default via the extended
+meta-schema:
+
+~~~ json
+{
+  "$schema": "https://json-structure.github.io/meta/extended/v0/#",
+  "$id": "myschema",
+  "$import": "https://example.com/people.json",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+    },
+    "address": {
+      "type": { "$ref": "#/definitions/Person/Address" }
+    }
+  }
+}
+~~~
+
 # Security and Interoperability {#security-and-interoperability}
 
 - Schema processing engines MUST resolve the absolute URIs specified in
