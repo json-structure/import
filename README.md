@@ -1,8 +1,8 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# JSON Structure Import
+# JSON Structure: Import
 
-This is the working area for the individual Internet-Draft, "JSON Structure Import".
+This is the working area for the individual Internet-Draft, "JSON Structure: Import".
 
 * [Editor's Copy](https://json-structure.github.io/import/#go.draft-vasters-json-structure-import.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-vasters-json-structure-import)
