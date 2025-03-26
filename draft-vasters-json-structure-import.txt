@@ -72,8 +72,8 @@ Table of Contents
    4.  Examples
      4.1.  Example: Using $import to import an external schema
      4.2.  Example: Using $import with shadowing
-     4.3.  Example: Using $importdefs to import the $defs section of
-           an external schema
+     4.3.  Example: Using $importdefs to import the definitions
+           section of an external schema
    5.  Resolving URIs
      5.1.  Enabling the Extensions
    6.  Security and Interoperability
@@ -118,7 +118,7 @@ Table of Contents
    before processing any other keywords in the schema document.
 
    The result of importing definitions is that the imported definitions
-   are merged into the local $defs section under the designated
+   are merged into the local definitions section under the designated
    namespace as if they were defined locally.
 
    A schema that uses $import or $importdefs MAY _shadow_ any imported
@@ -144,12 +144,12 @@ Table of Contents
 
    When the keyword is used at the root level of a schema, the imported
    definitions are available in the schema's root namespace.  When used
-   within the $defs section, the imported definitions are available in
-   the respective local namespace.
+   within the definitions section, the imported definitions are
+   available in the respective local namespace.
 
       *Reminder*: Any type declaration at the root level of a schema and
-      any type declaration at the root level of the $defs section is
-      placed in the schema's root namespace per section 3.3 of
+      any type declaration at the root level of the definitions section
+      is placed in the schema's root namespace per section 3.3 of
       [JSTRUCT-CORE].
 
    Example for $import at the root level:
@@ -159,21 +159,21 @@ Table of Contents
      "$import": "https://example.com/people.json"
    }
 
-   Importing into the root namespace within the $defs section is
+   Importing into the root namespace within the definitions section is
    equivalent to the prior example:
 
    {
      "$schema": "https://json-structure.github.io/meta/core/v0/#",
-     "$defs": {
+     "definitions": {
        "$import": "https://example.com/people.json"
      }
    }
 
-   One can also import into any local namespace within the $defs
+   One can also import into any local namespace within the definitions
    section:
 
    {
-     "$defs": {
+     "definitions": {
        "People": {
          "$import": "https://example.com/people.json"
        }
@@ -195,8 +195,8 @@ Table of Contents
    absolute URI pointing to an external schema document.
 
    $importdefs works the same as $import, with the exception that it
-   only imports the $defs section of the external schema and not the
-   root type.
+   only imports the definitions section of the external schema and not
+   the root type.
 
    The purpose of $importdefs is to use the type definitions from an
    external schema as a library of types that can be referenced from
@@ -217,9 +217,9 @@ Table of Contents
      "properties": {
        "firstName": { "type": "string" },
        "lastName": { "type": "string" },
-       "address": { "$ref": "#/$defs/Address" }
+       "address": { "$ref": "#/definitions/Address" }
      },
-     "$defs": {
+     "definitions": {
        "Address": {
          "type": "object",
          "properties": {
@@ -239,13 +239,13 @@ Table of Contents
      "type": "object",
      "properties": {
        "person": {
-         "type": { "$ref": "#/$defs/People/Person" }
+         "type": { "$ref": "#/definitions/People/Person" }
        },
        "shippingAddress": {
-         "type": { "$ref": "#/$defs/People/Address" }
+         "type": { "$ref": "#/definitions/People/Address" }
        }
      },
-     "$defs": {
+     "definitions": {
        "People": {
          "$import": "https://example.com/people.json"
        }
@@ -267,10 +267,10 @@ Table of Contents
      "type": "object",
      "properties": {
        "person": {
-         "type": { "$ref": "#/$defs/Person" }
+         "type": { "$ref": "#/definitions/Person" }
        },
        "shippingAddress": {
-         "type": { "$ref": "#/$defs/Address" }
+         "type": { "$ref": "#/definitions/Address" }
        }
      }
    }
@@ -282,13 +282,13 @@ Table of Contents
      "type": "object",
      "properties": {
        "person": {
-         "type": { "$ref": "#/$defs/Person" }
+         "type": { "$ref": "#/definitions/Person" }
        },
        "shippingAddress": {
-         "type": { "$ref": "#/$defs/Address" }
+         "type": { "$ref": "#/definitions/Address" }
        }
      },
-     "$defs": {
+     "definitions": {
        "$import": "https://example.com/people.json"
      }
    }
@@ -308,10 +308,10 @@ Table of Contents
      "type": "object",
      "properties": {
        "person": {
-         "type": { "$ref": "#/$defs/People/Person" }
+         "type": { "$ref": "#/definitions/People/Person" }
        }
      },
-     "$defs": {
+     "definitions": {
        "People": {
          "$import": "https://example.com/people.json",
          "Address": {
@@ -327,26 +327,26 @@ Table of Contents
      }
    }
 
-4.3.  Example: Using $importdefs to import the $defs section of an
+4.3.  Example: Using $importdefs to import the definitions section of an
       external schema
 
    The external schema remains the same as in Example 4.1.
 
-   The importing schema uses $importdefs to import the $defs section of
-   the external schema into the "People" namespace.  The imported
-   Address type is then used in the local schema as the type of the
-   shippingAddress property as before.  However, the Person type is not
-   imported and available.
+   The importing schema uses $importdefs to import the definitions
+   section of the external schema into the "People" namespace.  The
+   imported Address type is then used in the local schema as the type of
+   the shippingAddress property as before.  However, the Person type is
+   not imported and available.
 
    {
      "$schema": "https://json-structure.github.io/meta/core/v0/#",
      "type": "object",
      "properties": {
        "shippingAddress": {
-         "type": { "$ref": "#/$defs/People/Address" }
+         "type": { "$ref": "#/definitions/People/Address" }
        }
      },
-     "$defs": {
+     "definitions": {
        "People": {
          "$importdefs": "https://example.com/people.json"
        }

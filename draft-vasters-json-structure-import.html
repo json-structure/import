@@ -1173,7 +1173,7 @@ external schema documents.<a href="#section-abstract-1" class="pilcrow">¶</a></
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-example-using-import-with-s" class="internal xref">Example: Using <code>$import</code> with shadowing</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-example-using-importdefs-to" class="internal xref">Example: Using <code>$importdefs</code> to import the <code>$defs</code> section of an external schema</a></p>
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-example-using-importdefs-to" class="internal xref">Example: Using <code>$importdefs</code> to import the <code>definitions</code> section of an external schema</a></p>
 </li>
             </ul>
 </li>
@@ -1245,7 +1245,7 @@ document.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">A schema processor MUST process the <code>$import</code> and <code>$importdefs</code> keywords before
 processing any other keywords in the schema document.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">The result of importing definitions is that the imported definitions are merged
-into the local <code>$defs</code> section under the designated namespace as if they were
+into the local <code>definitions</code> section under the designated namespace as if they were
 defined locally.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">A schema that uses <code>$import</code> or <code>$importdefs</code> MAY <em>shadow</em> any imported
 definitions with local definitions of the same name and in the same namespace,
@@ -1268,13 +1268,13 @@ pointing to an external schema document. It is used to import all type
 definitions of the external schema into a local namespace within the current
 schema document.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">When the keyword is used at the root level of a schema, the imported definitions
-are available in the schema's root namespace. When used within the <code>$defs</code>
+are available in the schema's root namespace. When used within the <code>definitions</code>
 section, the imported definitions are available in the respective local
 namespace.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="section-3.1-3.1">
             <p id="section-3.1-3.1.1"><strong>Reminder</strong>: Any type declaration at the root level of a schema and any type
-declaration at the root level of the <code>$defs</code> section is placed in the schema's
+declaration at the root level of the <code>definitions</code> section is placed in the schema's
 root namespace per section 3.3 of <span>[<a href="#JSTRUCT-CORE" class="cite xref">JSTRUCT-CORE</a>]</span>.<a href="#section-3.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
@@ -1287,23 +1287,23 @@ root namespace per section 3.3 of <span>[<a href="#JSTRUCT-CORE" class="cite xre
 }
 </pre><a href="#section-3.1-5" class="pilcrow">¶</a>
 </div>
-<p id="section-3.1-6">Importing into the root namespace within the <code>$defs</code> section is equivalent to
+<p id="section-3.1-6">Importing into the root namespace within the <code>definitions</code> section is equivalent to
 the prior example:<a href="#section-3.1-6" class="pilcrow">¶</a></p>
 <div class="lang-json sourcecode" id="section-3.1-7">
 <pre>
 {
   "$schema": "https://json-structure.github.io/meta/core/v0/#",
-  "$defs": {
+  "definitions": {
     "$import": "https://example.com/people.json"
   }
 }
 </pre><a href="#section-3.1-7" class="pilcrow">¶</a>
 </div>
-<p id="section-3.1-8">One can also import into any local namespace within the <code>$defs</code> section:<a href="#section-3.1-8" class="pilcrow">¶</a></p>
+<p id="section-3.1-8">One can also import into any local namespace within the <code>definitions</code> section:<a href="#section-3.1-8" class="pilcrow">¶</a></p>
 <div class="lang-json sourcecode" id="section-3.1-9">
 <pre>
 {
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json"
     }
@@ -1327,7 +1327,7 @@ external schemas into distinct local namespaces.<a href="#section-3.1-11" class=
 <p id="section-3.2-1">The <code>$importdefs</code> keyword is a reference expression whose value is an absolute
 URI pointing to an external schema document.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2"><code>$importdefs</code> works the same as <code>$import</code>, with the exception that it only
-imports the <code>$defs</code> section of the external schema and not the root type.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+imports the <code>definitions</code> section of the external schema and not the root type.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.2-3">The purpose of <code>$importdefs</code> is to use the type definitions from an external
 schema as a library of types that can be referenced from within the local schema
 without importing the root type of the external schema.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
@@ -1356,9 +1356,9 @@ without importing the root type of the external schema.<a href="#section-3.2-3" 
   "properties": {
     "firstName": { "type": "string" },
     "lastName": { "type": "string" },
-    "address": { "$ref": "#/$defs/Address" }
+    "address": { "$ref": "#/definitions/Address" }
   },
-  "$defs": {
+  "definitions": {
     "Address": {
       "type": "object",
       "properties": {
@@ -1380,13 +1380,13 @@ as the type of the <code>person</code> property:<a href="#section-4.1-3" class="
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/People/Person" }
+      "type": { "$ref": "#/definitions/People/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/People/Address" }
+      "type": { "$ref": "#/definitions/People/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json"
     }
@@ -1409,10 +1409,10 @@ schema:<a href="#section-4.1-6" class="pilcrow">¶</a></p>
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/Person" }
+      "type": { "$ref": "#/definitions/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/Address" }
+      "type": { "$ref": "#/definitions/Address" }
     }
   }
 }
@@ -1426,13 +1426,13 @@ schema:<a href="#section-4.1-6" class="pilcrow">¶</a></p>
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/Person" }
+      "type": { "$ref": "#/definitions/Person" }
     },
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/Address" }
+      "type": { "$ref": "#/definitions/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "$import": "https://example.com/people.json"
   }
 }
@@ -1458,10 +1458,10 @@ namespace:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
   "type": "object",
   "properties": {
     "person": {
-      "type": { "$ref": "#/$defs/People/Person" }
+      "type": { "$ref": "#/definitions/People/Person" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$import": "https://example.com/people.json",
       "Address": {
@@ -1483,10 +1483,10 @@ namespace:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <div id="example-importdefs">
 <section id="section-4.3">
         <h3 id="name-example-using-importdefs-to">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-example-using-importdefs-to" class="section-name selfRef">Example: Using <code>$importdefs</code> to import the <code>$defs</code> section of an external schema</a>
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-example-using-importdefs-to" class="section-name selfRef">Example: Using <code>$importdefs</code> to import the <code>definitions</code> section of an external schema</a>
         </h3>
 <p id="section-4.3-1">The external schema remains the same as in Example 4.1.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.3-2">The importing schema uses <code>$importdefs</code> to import the <code>$defs</code> section of the
+<p id="section-4.3-2">The importing schema uses <code>$importdefs</code> to import the <code>definitions</code> section of the
 external schema into the "People" namespace. The imported <code>Address</code> type is then
 used in the local schema as the type of the <code>shippingAddress</code> property as
 before. However, the <code>Person</code> type is not imported and available.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
@@ -1497,10 +1497,10 @@ before. However, the <code>Person</code> type is not imported and available.<a h
   "type": "object",
   "properties": {
     "shippingAddress": {
-      "type": { "$ref": "#/$defs/People/Address" }
+      "type": { "$ref": "#/definitions/People/Address" }
     }
   },
-  "$defs": {
+  "definitions": {
     "People": {
       "$importdefs": "https://example.com/people.json"
     }
