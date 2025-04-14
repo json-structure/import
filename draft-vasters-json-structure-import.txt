@@ -155,7 +155,7 @@ Table of Contents
    Example for $import at the root level:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "$import": "https://example.com/people.json"
    }
 
@@ -163,7 +163,7 @@ Table of Contents
    equivalent to the prior example:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "definitions": {
        "$import": "https://example.com/people.json"
      }
@@ -210,7 +210,7 @@ Table of Contents
    Let the external schema be defined as follows:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "$id": "https://example.com/people.json",
      "name": "Person",
      "type": "object",
@@ -235,7 +235,7 @@ Table of Contents
    local schema as the type of the person property:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "type": "object",
      "properties": {
        "person": {
@@ -262,7 +262,7 @@ Table of Contents
    root namespace of the local schema:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "$import": "https://example.com/people.json",
      "type": "object",
      "properties": {
@@ -278,7 +278,7 @@ Table of Contents
    The following schema is equivalent to the prior example:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "type": "object",
      "properties": {
        "person": {
@@ -304,7 +304,7 @@ Table of Contents
    type within the same namespace:
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "type": "object",
      "properties": {
        "person": {
@@ -339,7 +339,7 @@ Table of Contents
    not imported and available.
 
    {
-     "$schema": "https://json-structure.github.io/meta/core/v0/#",
+     "$schema": "https://json-structure.org/meta/core/v0/#",
      "type": "object",
      "properties": {
        "shippingAddress": {
@@ -367,7 +367,7 @@ Table of Contents
    extended meta-schema:
 
    {
-     "$schema": "https://json-structure.github.io/meta/extended/v0/#",
+     "$schema": "https://json-structure.org/meta/extended/v0/#",
      "$id": "myschema",
      "$import": "https://example.com/people.json",
      "type": "object",
