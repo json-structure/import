@@ -1,16 +1,16 @@
 ---
 
 title: "JSON Structure: Import"
-category: info
+category: std
 
 docname: draft-vasters-json-structure-import-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
-date: 2025-03-24
+date: 2025-07-02
 consensus: true
 v: 3
-area: AREA
-workgroup: TBD
+area: Web and Internet Transport
+workgroup: Building Blocks for HTTP APIs
 keyword:
  - JSON
  - schema
