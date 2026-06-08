@@ -376,6 +376,19 @@ This document does not require any IANA actions.
 
 --- back
 
+# Changes from draft-vasters-json-structure-import-01
+{:numbered="false"}
+
+- Added RFC6901 to normative references.
+- Replaced nonstandard term "jsonpointer instance" with "JSON Pointer
+  reference" and added RFC 6901 citation.
+- Replaced hard-coded "Example 4.1" with internal cross-reference anchor.
+
+# Changes from draft-vasters-json-structure-import-00
+{:numbered="false"}
+
+- No substantive changes; date update only.
+
 # Acknowledgments
 {:numbered="false"}
 
