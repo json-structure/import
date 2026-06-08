@@ -4,8 +4,8 @@
 
 Building Blocks for HTTP APIs                                 C. Vasters
 Internet-Draft                                     Microsoft Corporation
-Intended status: Standards Track                         4 December 2025
-Expires: 7 June 2026
+Intended status: Standards Track                             8 June 2026
+Expires: 10 December 2026
 
 
                          JSON Structure: Import
@@ -46,11 +46,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 June 2026.
+   This Internet-Draft will expire on 10 December 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -79,6 +79,8 @@ Table of Contents
    6.  Security and Interoperability
    7.  IANA Considerations
    8.  Normative References
+   Changes from draft-vasters-json-structure-import-01
+   Changes from draft-vasters-json-structure-import-00
    Acknowledgments
    Author's Address
 
@@ -433,6 +435,20 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+Changes from draft-vasters-json-structure-import-01
+
+   *  Added RFC6901 to normative references.
+
+   *  Replaced nonstandard term "jsonpointer instance" with "JSON
+      Pointer reference" and added RFC 6901 citation.
+
+   *  Replaced hard-coded "Example 4.1" with internal cross-reference
+      anchor.
+
+Changes from draft-vasters-json-structure-import-00
+
+   *  No substantive changes; date update only.
 
 Acknowledgments
 
