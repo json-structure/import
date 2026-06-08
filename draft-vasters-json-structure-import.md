@@ -30,6 +30,7 @@ normative:
   RFC2119:
   RFC3986:
   RFC3987:
+  RFC6901:
   RFC8174:
   JSTRUCT-CORE:
     title: "JSON Structure Core"
@@ -91,8 +92,8 @@ type that it shadows.
 
 When importing definitions into a local namespace, the processor MUST ensure
 that all imported cross-references are resolved within the imported definitions
-themselves and not to the local schema. That means that any `jsonpointer`
-instance (`$ref` or `$extends` or `$addins`) within imported definitions MUST be
+themselves and not against the local schema. That means that any JSON Pointer
+reference ({{RFC6901}}) (`$ref`, `$extends`, or `$addins`) within imported definitions MUST be
 prefixed with the local namespace under which the definitions were imported.
 This applies recursively to any imported schema that itself contains imports.
 
@@ -301,7 +302,7 @@ namespace:
 
 ## Example: Using `$importdefs` to import the `definitions` section of an external schema {#example-importdefs}
 
-The external schema remains the same as in Example 4.1.
+The external schema remains the same as in {{example-import-external-schema}}.
 
 The importing schema uses `$importdefs` to import the `definitions` section of the
 external schema into the "People" namespace. The imported `Address` type is then
