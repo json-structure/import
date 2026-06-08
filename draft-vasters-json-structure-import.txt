@@ -129,11 +129,12 @@ Table of Contents
 
    When importing definitions into a local namespace, the processor MUST
    ensure that all imported cross-references are resolved within the
-   imported definitions themselves and not to the local schema.  That
-   means that any jsonpointer instance ($ref or $extends or $addins)
-   within imported definitions MUST be prefixed with the local namespace
-   under which the definitions were imported.  This applies recursively
-   to any imported schema that itself contains imports.
+   imported definitions themselves and not against the local schema.
+   That means that any JSON Pointer reference ([RFC6901]) ($ref,
+   $extends, or $addins) within imported definitions MUST be prefixed
+   with the local namespace under which the definitions were imported.
+   This applies recursively to any imported schema that itself contains
+   imports.
 
 3.1.  $import Keyword
 
@@ -330,7 +331,7 @@ Table of Contents
 4.3.  Example: Using $importdefs to import the definitions section of an
       external schema
 
-   The external schema remains the same as in Example 4.1.
+   The external schema remains the same as in Section 4.1.
 
    The importing schema uses $importdefs to import the definitions
    section of the external schema into the "People" namespace.  The
@@ -423,6 +424,11 @@ Table of Contents
    [RFC3987]  Duerst, M. and M. Suignard, "Internationalized Resource
               Identifiers (IRIs)", RFC 3987, DOI 10.17487/RFC3987,
               January 2005, <https://www.rfc-editor.org/rfc/rfc3987>.
+
+   [RFC6901]  Bryan, P., Ed., Zyp, K., and M. Nottingham, Ed.,
+              "JavaScript Object Notation (JSON) Pointer", RFC 6901,
+              DOI 10.17487/RFC6901, April 2013,
+              <https://www.rfc-editor.org/rfc/rfc6901>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
