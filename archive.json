@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-07T04:10:13.708951+00:00",
+  "timestamp": "2026-06-09T03:42:59.531351+00:00",
   "repo": "json-structure/import",
   "labels": [
     {
@@ -49,6 +49,80 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOONqcxc8AAAABEs8Uxw",
+      "title": "Editorial: missing reference, nonstandard terminology, hard-coded example number",
+      "url": "https://github.com/json-structure/import/issues/1",
+      "state": "CLOSED",
+      "author": "clemensv",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The following minor editorial issues were found during review:\n\n### 1. Missing RFC6901 in normative references\n\nThe draft discusses JSON Pointer semantics but `RFC6901` is not listed in the normative references metadata block.\n\n### 2. Nonstandard term \"jsonpointer instance\"\n\nThe text refers to \"any `jsonpointer` instance (`` or `` or ``)\" \u2014 this should use the standard term \"JSON Pointer reference\" with a citation to RFC 6901.\n\n### 3. Hard-coded \"Example 4.1\" reference\n\nThe text says \"The external schema remains the same as in Example 4.1.\" \u2014 this should use an internal cross-reference anchor (e.g., `{{example-import-external-schema}}`) to avoid breakage if examples are reordered.",
+      "createdAt": "2026-06-08T06:27:39Z",
+      "updatedAt": "2026-06-08T08:53:21Z",
+      "closedAt": "2026-06-08T08:53:21Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOONqcxc7j0NKq",
+      "title": "Editorial: fix references and terminology",
+      "url": "https://github.com/json-structure/import/pull/2",
+      "state": "MERGED",
+      "author": "clemensv",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Add RFC6901 to normative references\n- Replace nonstandard 'jsonpointer instance' with 'JSON Pointer reference (RFC6901)'\n- Replace hard-coded 'Example 4.1' with internal cross-reference anchor\n\nFixes #1",
+      "createdAt": "2026-06-08T08:27:13Z",
+      "updatedAt": "2026-06-08T08:53:21Z",
+      "baseRepository": "json-structure/import",
+      "baseRefName": "main",
+      "baseRefOid": "d977fd7b31feaf5ea3ace35aed795104d8700d60",
+      "headRepository": "json-structure/import",
+      "headRefName": "editorial/fix-references-and-terminology",
+      "headRefOid": "3401a5828ba478485babc65913ac293da446afe0",
+      "closedAt": "2026-06-08T08:53:20Z",
+      "mergedAt": "2026-06-08T08:53:20Z",
+      "mergedBy": "clemensv",
+      "mergeCommit": {
+        "oid": "93b24453e7f66f2eea51ba3d913252cb8bfc927f"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOONqcxc7j2Vrt",
+      "title": "Add changes section for draft-02",
+      "url": "https://github.com/json-structure/import/pull/3",
+      "state": "MERGED",
+      "author": "clemensv",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds changes sections documenting updates from -00 and -01.",
+      "createdAt": "2026-06-08T09:59:51Z",
+      "updatedAt": "2026-06-08T15:22:43Z",
+      "baseRepository": "json-structure/import",
+      "baseRefName": "main",
+      "baseRefOid": "93b24453e7f66f2eea51ba3d913252cb8bfc927f",
+      "headRepository": "json-structure/import",
+      "headRefName": "editorial/add-changes-section",
+      "headRefOid": "7d561b1540729fd614994a970ec1a6a6aaa774fe",
+      "closedAt": "2026-06-08T15:22:43Z",
+      "mergedAt": "2026-06-08T15:22:43Z",
+      "mergedBy": "clemensv",
+      "mergeCommit": {
+        "oid": "9d176cca998deb68622ee27c7bcc0259ffe0aeca"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
