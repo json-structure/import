@@ -4,8 +4,8 @@
 
 Building Blocks for HTTP APIs                                 C. Vasters
 Internet-Draft                                     Microsoft Corporation
-Intended status: Standards Track                         4 December 2025
-Expires: 7 June 2026
+Intended status: Standards Track                             9 June 2026
+Expires: 11 December 2026
 
 
                          JSON Structure: Import
@@ -46,11 +46,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 June 2026.
+   This Internet-Draft will expire on 11 December 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -366,8 +366,13 @@ Table of Contents
 
 5.1.  Enabling the Extensions
 
-   The import extensions are available and enabled by default via the
-   extended meta-schema:
+   This add-in's keywords ($import, $importdefs) are identified as
+   JSONStructureImport for the purposes of the $uses and $offers
+   keywords of a meta-schema.  Unlike the other add-ins defined by
+   companion specifications, JSONStructureImport is listed in the
+   extended meta-schema's own $uses, so it is available and enabled by
+   default via the extended meta-schema without a schema author needing
+   to list it in their own $uses:
 
    {
      "$schema": "https://json-structure.org/meta/extended/v0/#",
@@ -376,7 +381,7 @@ Table of Contents
      "type": "object",
      "properties": {
        "name": {
-         "type": "string",
+         "type": "string"
        },
        "address": {
          "type": { "$ref": "#/definitions/Person/Address" }
