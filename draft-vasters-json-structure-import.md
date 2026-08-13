@@ -336,8 +336,12 @@ schema documents.
 
 ## Enabling the Extensions {#enabling-the-extensions}
 
-The import extensions are available and enabled by default via the extended
-meta-schema:
+This add-in's keywords (`$import`, `$importdefs`) are identified as
+`JSONStructureImport` for the purposes of the `$uses` and `$offers` keywords
+of a meta-schema. Unlike the other add-ins defined by companion
+specifications, `JSONStructureImport` is listed in the extended meta-schema's
+own `$uses`, so it is available and enabled by default via the extended
+meta-schema without a schema author needing to list it in their own `$uses`:
 
 ~~~ json
 {
@@ -347,7 +351,7 @@ meta-schema:
   "type": "object",
   "properties": {
     "name": {
-      "type": "string",
+      "type": "string"
     },
     "address": {
       "type": { "$ref": "#/definitions/Person/Address" }
